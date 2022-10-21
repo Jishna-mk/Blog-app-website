@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&family=Roboto:ital,wght@0,100;0,400;0,900;1,300&display=swap');
+*{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+
+}
+.nav{
+    display: flex;
+   justify-content: space-between;
+   background: linear-gradient(#7395ae,#83677b);
+   height: 50px;
+   color: aliceblue;
+   align-items: center;
+   padding: 0 20px;
+
+}
+.nav-title{
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(161, 148, 173);
+}
+.nav-title span{
+    color:red;
+
+}
+.nav-link{
+ text-decoration: none;
+ font-size: 18px;
+ color: bisque;
+}
+.btn{
+    background-color: lightseagreen;
+    padding:   5px 15px;
+    margin-left: 15px;
+    color: #83677b;   
+}
+h2{
+    color:#83677b ;
+    margin-left: 5cm;
+    margin-top: 75px;
+    
+}
+.blog-name{
+    color: green;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: capitalize;  
+}
+.author-name{
+    color:brown;
+    font-size: 20px;    
+}
+.date{
+    color: black;
+    font-size: 15px;
+}
+.first{
+    margin-top: 1cm;
+    margin-left: 20vw;
+    width: 60vw;
+    display: flex;
+    border: 1px solid gray;
+    padding: 20px;
+   
+   
+}
+.second{
+    margin-left: 15px;
+}
+.para{
+    text-align: justify;
+    text-indent: 1cm;
+    
+}
+.new-btn{
+    margin-left:60px;
+}   
+
+    

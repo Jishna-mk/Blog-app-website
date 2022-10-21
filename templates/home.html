@@ -1,0 +1,158 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{% static 'css/home.css' %}"> -->
+
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body><style>
+.nav{
+    display: flex;
+   justify-content: space-between;
+   background-color: #4D7746;
+   height: 50px;
+   color: aliceblue;
+   align-items: center;
+   padding: 0 20px;
+
+}
+.nav-title{
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    color: #F1B24A;
+}
+.nav-title span{
+ color: #F1B24A;
+    
+
+}
+.nav-link{
+ text-decoration: none;
+ font-size: 18px;
+ color:#FFFFFF;
+}
+.btn{
+    background-color: #9DC88D;
+    padding:   5px 15px;
+    margin-left: 15px;
+    color: #FFFFFF ;
+       
+}
+
+h1{
+    color:  #76323f;;
+    margin-left: 4cm;
+    margin-top: 75px;
+    
+    
+}
+.blog-name{
+    color: #4D774E;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: capitalize;  
+}
+.author-name{
+    color:brown;
+    font-size: 20px;    
+}
+.date{
+    color: black;
+    font-size: 15px;
+}
+.first{
+    margin-top: 1cm;
+    margin-left: 20vw;
+    width: 60vw;
+    display: flex;
+    border: 1px solid gray;
+    padding: 20px;
+    background-color:#c5ddb9 ;
+   
+   
+}
+.second{
+    margin-left: 15px;
+    
+}
+.para{
+    text-align: justify;
+    text-indent: 1cm;
+    
+}
+.new-btn{
+    margin-left:60px;
+    background-color:#9DC88D ;
+    color: #76323f;
+    margin-top:16px;
+    font-weight: 100;
+    border: none;
+    padding: 5px;
+}
+ .btn1{
+ margin-left: 50vw;
+}
+.new-btn:hover{
+    background-color: burlywood;
+} 
+
+img{
+    margin-right: 15px;
+    width: 200px;
+    height: 200px;
+}
+body{
+    background:linear-gradient(#FFFFFF,#9DC88D) ;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.fa {
+    font-size: 23PX;
+    color: #4D7746;
+    background-color: #9DC88D;
+}  
+.one{
+    background-color: #9DC88D;
+    border: solid#4D7746 ;
+    color: brown;
+}
+</style>
+    
+    <div class="nav">
+       <a class="nav-title">BLOG <span>WEB</span> </a>
+        <div class="second-nav">
+            <a href="#" class="nav-link">{{request.user.username}}</a>
+            <a href="{%url 'signout'%}" class=" nav-link btn">Logout</a>
+        </div>
+    </div>
+    <h1>NEW BLOGS</h1><a href="{%url 'add_blog'%}"class="btn1"><button class="new-btn " >ADD BLOG</button></a>
+    <a href="{%url 'my_blog'%}"><button class="new-btn" >MY BLOG</button></a>
+   {%for blog in all_blogs %}
+    <div class="first">
+        <img src="{{blog.Blog_image.url}}" alt="nature">
+        <!-- <p>{{blog.blog_image.url}}</p> -->
+        
+        <div class="second">
+            <p class="blog-name">{{blog.Blog_title}}</p><br>
+            <p class="author-name">{{blog.Author_name}}</p>
+            <p class="date">Published Date :{{blog.Published_date}}</p>
+            
+            <p class="para">{{blog.Blog_detail}}</p>
+            <a href="{%url 'add_like' blog.id blog.Likes %}"><button class="one">Like <i  class="fa fa-thumbs-up"></i>{{blog.Likes}}</button></a>
+       </div>
+    </div>
+    
+    {%endfor%}
+</body>
+</html>
+
+
+
+
+
+

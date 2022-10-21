@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my blog</title>
+</head>
+<body>
+    <style>
+.card{
+    display: flex;
+    background-color: #dce1e3;
+    margin:50px;
+    padding: 20px;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+}
+.left{
+    display: flex;
+
+}
+.card_image{
+    margin-right: 15px;
+    width: 200px;
+    height: 200px;
+}
+h1{
+    color: brown;
+    border: 1px;
+    text-align: center;
+ }
+.btn{
+    background-color:#9DC88D ;
+    border: none;
+    padding: 6px;
+}
+body{
+
+    background:linear-gradient(#9DC88D,#FFFFFF,#9DC88D) ;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}     
+
+    </style>
+
+    <h1> MY BLOG</h1>
+    {%for m in messages%}
+    <p>{{m}}</p>
+    {%endfor%}
+    {%for blog in my_blogs%}
+    <div class="card">
+        <div class="left">
+            <img src="{{blog.Blog_image.url}}" alt="" class="card_image">
+           <div>
+            <p>{{blog.Blog_title}}</p>
+            <p>Published Date :{{blog.Published_date}}</p>
+            <p>{{blog.Blog_detail}}</p>
+           </div>
+        </div>
+        <div class="right">
+            <a href="{%url 'delete_page' blog.id%}" onclick="return confirm('Are you sure want to delete?')"><button class="btn">Delete</button></a>
+            <a href="{%url 'update_page' blog.id%}"><button class="btn">Edit</button></a>
+        </div>
+    </div>
+{%endfor%}
+        
+        
+            
+       
+
+        
+
+
+</body>
+</html>

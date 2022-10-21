@@ -1,0 +1,31 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+    <title>Login</title>
+</head>
+<body>
+    
+    {% block content %}
+<div class="detail">
+    {% for message in messages %}
+    <h3 style="color:white">{{message}}</h3>
+    {% endfor %}
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="uname" placeholder="Enter Username">
+        <br>
+        <br>
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+    <h4>Don't have an Account Click <a href="{%url 'signup'%}">Here</a></h4>
+</div>
+{% endblock %}
+</body>
+</html>

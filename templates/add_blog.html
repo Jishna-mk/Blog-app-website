@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><style>
+h1{
+    color: brown;
+    border: 1px;
+    text-align: center;
+}
+label{
+    color: darkslateblue;
+}
+input{
+    background-color: burlywood;
+}
+input:hover{
+    background-color: beige;   
+}
+.hero{
+    /* border: solid 1px #4d774e; */
+    width: 60vw;
+    margin-left: 20vw;
+    justify-items: center;
+    text-align:justify;
+    padding: 30px; 
+    background-color:  #dce1e3; 
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; 
+}
+button{
+    color: aliceblue;
+    background-color: cornflowerblue;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding: 8px;
+}
+body{
+    background:linear-gradient(#9DC88D,#FFFFFF,#9DC88D) ;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+</style>
+    <h1>ADD BLOG</h1>
+    
+    {% for message in messages %}
+    
+      <h3 style="color: red">{{message}}</h3>
+      {% endfor%}
+      
+    <form method="post" enctype="multipart/form-data"> 
+        {% csrf_token %}
+    <div class="hero">
+        <label for="" >BLOG NAME</label>
+        <input type="text" name="Blog_title" required><br><br>
+        <label for="">AUTHOR NAME</label>
+        <input type="text" name="Author_name" value="{{request.user.username}}" readonly><br><br>
+        <label for="">PUBLISHED DATE</label>
+        <input type="date" name="Published_date" required><br><br>
+        <label for="">BLOG DESCRIPTION</label>
+        <input type="text" name="Blog_detail" required><br><br>
+        <label for=""> ADD IMAGE</label>
+        <input type="file" name="Blog_image" required><br><br>
+    
+        <button type="submit">ADD BLOG</button><br><br>
+    </div>
+    </form>
+
+</body>
+</html>
